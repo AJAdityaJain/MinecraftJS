@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!-- Styling with (eh...OK) css -->
+
+<style>
+    html{
+        /* cursor: url(IMAGES/GUI/icon.png), auto; */
+        cursor: crosshair;
+        image-rendering: pixelated;
+    }
+    #canvas{
+        width: 1200px;;
+        height: 600px;;
+        padding: 0px;
+        background-color: #f7baba00;
+        z-index: 3;
+        position: relative;
+        border:#FFFFFF solid 2px;
+    }
+
+    #bg{
+        margin: auto;   
+        max-width: 1200px;;
+        max-height: 600px;;
+        background-image: url("IMAGES/GUI/bg/MORNING\ -\ EVENING.png");
+        background-position-y: -100px;
+        background-repeat: repeat-x;
+        z-index: -1;
+    }
+
+    #haunch, #heart,#armour{
+        width: 35px;
+        height: 35px;
+        padding-left: 3px;
+    } 
+
+    #SkyBodies{
+        pointer-events: none;
+        position: relative;
+        top:-900px;
+        transform: rotate(90deg);
+        z-index: 1;
+    }
+
+    #name{
+        color: #ffffff;
+        background-color: #424242;
+        border:solid #000000 5px;
+        border-radius: 25px;
+        font-family:PixelFont;
+        position: relative;
+        top:-1610px;
+        z-index: 100;
+        max-width: 200px;
+        margin-left: 45%;
+        opacity: 0%;
+    }
+
+    #Vignette{
+        position: relative;
+        top:-2300px;
+        z-index: 5;
+        width: 1400px;;
+        height: 700px;;
+        opacity: 0;
+        background-image: url("images/GUI/vignette.png");
+        background-size: contain;
+        pointer-events: none;
+    }
+
+    @font-face {
+        font-family: PixelFont;
+        src: url(Pixelar.otf);
+    }
+
+    .body{
+        background-color: black;
+        overflow: hidden;
+        -webkit-user-select: none;
+        user-select: none;
+        vertical-align: top;
+    }
+
+    .hslot{
+        min-width: 75px;
+        min-height: 75px;
+        opacity: 90%;
+        background-image: url(IMAGES/GUI/SelectedSlot.png);
+        background-size: cover;
+        border: 1px solid transparent;
+        z-index: 4;
+        position: relative;
+    }
+
+    .hs{
+        margin-left: 12.5px;
+        margin-top: 12.5px;
+        width: 50px;
+        height: 50px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        color: white;
+        font-size: 45px;
+        font-family:PixelFont;
+        -webkit-text-fill-color: white; 
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+        background-size: 49px 49px;
+        /* background-position: 0% -30%;  */
+    }
+
+    .STAT{
+        height: 36px;
+        width: 500px;
+        z-index: 4;
+        position: relative;
+    }
+
+    .overlay{
+        position: relative;
+        top:-170px;
+    }
+</style>
+
+<!-- Structuring with html(Headache) -->
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="IMAGES/GUI/icon.png" type="image/png" sizes="256x256">
+    <title>Minebuild Javascript Edition</title>
+</head>
+<body align="center"
+      onload="init();"
+      onkeyup= "keyPressed(event)"
+      class="body">
+    <div id="bg" align="center" width="4800" height="2400"> 
+        <canvas id="canvas" width="4800" height="2400"tabindex='1'></canvas>
+    </div>
+    
+    <table class="overlay" align="center">
+        <tr>
+
+            <td class="STAT">
+                <div id = "armourbar">
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="STAT">
+                <DIV id="healthbar">
+
+                </DIV>
+            </td>
+            <td class="STAT">
+                <div id = "foodbar">
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td id="hotbar" colspan="2">
+                <table align="center">
+                    <tr>
+                        <td>
+                            <div class= "hslot"  onclick="HotBarSlotClicked(1-1)">
+                                <div id="1" class="hs"></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class= "hslot"  onclick="HotBarSlotClicked(2-1)">
+                                <div id="2" class="hs"></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class= "hslot"  onclick="HotBarSlotClicked(3-1)">
+                                <div id="3" class="hs"></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class= "hslot"  onclick="HotBarSlotClicked(4-1)">
+                                <div id="4" class="hs"></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class= "hslot"  onclick="HotBarSlotClicked(5-1)">
+                                <div id="5" class="hs"></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class= "hslot"  onclick="HotBarSlotClicked(6-1)">
+                                <div id="6" class="hs"></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class= "hslot"  onclick="HotBarSlotClicked(7-1)">
+                                <div id="7" class="hs"></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class= "hslot"  onclick="HotBarSlotClicked(8-1)">
+                                <div id="8" class="hs"></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class= "hslot"  onclick="HotBarSlotClicked(9-1)">
+                                <div id="9" class="hs"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <img id="SkyBodies"  src="IMAGES/GUI/bg/Sky.png" width="180px" height="1440px">
+            </td>
+        </tr>
+        <TR>
+            <td colspan="2">
+                <div id="name">Start</div>
+            </td>
+        </TR>
+    </table>
+    <table align="center">
+        <tr>
+            <td>
+                <div id="Vignette" width="4800" height="2400">
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+<!-- Scripting with Awesome* Javascript {*symbolises sarcasticness}-->
+
+<script src="JS_Files/Images.js"></script>
+<script src="JS_Files/SFX.js"></script>
+<!-- <script type="module" src="https://raw.githubusercontent.com/AJAdityaJain/test/main/Main.js"></script> -->
+<script src="JS_Files/Main.js"></script>
+<script src="JS_Files/Functions/Terrain&Chunks.js"></script>
+<script src="JS_Files/Functions/GUI.js"></script>
+
+<script src="JS_Files/Classes/Items.js"></script>
+<script src="JS_Files/Classes/Blocks/MiscBlocks.js"></script>
+<script src="JS_Files/Classes/Blocks/DirtBlocks.js"></script>
+<script src="JS_Files/Classes/Blocks/StoneBlocks.js"></script>
+<script src="JS_Files/Classes/Blocks/WoodBlocks.js"></script>
+<script src="JS_Files/Classes/Blocks/LiquidBlocks.js"></script>
+<script src="JS_Files/Classes/EthosSlab.js"></script>
+<script src="JS_Files/Classes/Entity.js"></script>
+
+<script src="JS_Files/Functions/Stats.js"></script>
+<script src="JS_Files/Functions/Movment.js"></script>
+<script src="JS_Files/Functions/Destroy&Place.js"></script>
+<script src="JS_Files/Recipes.js"></script>
+<script src="JS_Files/FileSaver.js"></script>
+
+<script src="JS_Files/Functions/Mods.js"></script>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<style>
+    @font-face {
+        font-family: PixelFont;
+        src: url(Pixelar.otf);
+    }
+    
+    @keyframes spin {
+        0% {
+            transform: rotateZ(0deg);
+        }
+        33% {
+            transform: rotateZ(10deg);
+        }
+        66% {
+            transform: rotateZ(-10deg);
+        }
+        100% {
+            transform: rotateZ(0deg);
+        }
+    }
+    #Title{
+        min-height: 300px;
+        background-image: url(Images/GUI/bg/DAY.png);
+        background-position-y: -900px;
+        border: rgb(31, 31, 31) solid 5px;
+    }
+    #TitleImg {
+        cursor: pointer;
+        transform-style: preserve-3d;
+        animation: spin 5s infinite;
+        position: relative;
+        top: 40px;
+    }
+    #Laucher{
+    }
+    *{
+        margin-left: auto;
+        font-family: PixelFont;
+    }
+    body{
+        margin: auto;
+        font-family: PixelFont;
+    }
+    kbd{
+        font-family: PixelFont;
+        font-size: 50px;
+        position: relative;
+        bottom: 15px;
+        color: rgb(255, 246, 246);
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    td{
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    a{
+        text-decoration:none;
+        text-transform: uppercase;
+    }
+    .Controls{
+        border: solid #202020 10px;
+        color: white;
+        background-color: #202020;
+        width: 100%;
+    }
+    .Feature{
+        width: 100%;
+        color: white;
+        border: solid #202020 10px;
+        background-color: #202020;
+    }
+    .key{
+        background-color: rgb(63, 63, 63);
+        border-radius: 25px;
+        padding: 20px;
+        width: 150px;
+        height: 30px;
+        border:solid rgb(47, 47, 47) 4px;
+    }
+    .Indicator{
+        font-size: 30px;
+    }
+    .td1in3{
+        width: 33%;
+    }
+    .ClickView{
+        position: relative;
+        top: -10px;
+        width: 45px;
+    }
+    .LEGAL{
+        color: rgb(255, 0, 0);
+        background-color: rgb(255, 255, 255);
+        border: brown solid 5px;
+    }
+    .collapsible {
+        background-color: #6D6D6D;
+        color: #ffffff;
+        cursor: pointer;
+        padding: 18px;
+        border: solid 10px #6D6D6D;
+        outline: none;
+        font-size: 15px;
+        width: 100%;
+    }
+    .active, .collapsible:hover {
+        background-color: #303030;
+    }
+    .collapsible:after {
+        content: '\002B';
+        color: white;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+    }
+    .active:after {
+        content: "\2212";
+    }
+    .content {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        width: 10%;
+        background-color: #202020;
+        margin-left:0;
+        width: 96.6%;
+    }
+</style>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="IMAGES/GUI/icon.png" type="image/png" sizes="256x256">
+        <title>Minebuild Homepage</title>
+    </head>
+    <body align="center" style="max-width: 90%;">
+        <table align="center"CELLSPACING=0 >
+            <tr>
+                <td>
+                    <div id="Title">
+                       <img id="TitleImg" style="min-height: 200px;" src="IMAGES\GUI\title.png">
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="LEGAL">
+                        <h1>--- LEGAL ---</h1>
+                        <ul>
+                            <li align="left">This game is NON-OFFICIAL and is NOT endorsed by Minecraft.</li>
+                            <li align="left">This game was programmed by Aditya Jain and is NOT supported by Mojang.</li>
+                            <li align="left">If still there are Copyright issues feel free to delete and ban this game. Sorry for the inconvenience...</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="LEGAL">
+                        <h1>--- CREDITS ---</h1>
+                        <ul>
+                            <li align="left">Programmer: Aditya Jain, a 13 year old (Self-learner)</li>
+                            <li align="left">Concept: The core concept from the game <a href="https://Minecraft.net" target="_blank">Minecraft</a></li>
+                            <li align="left">Blocks & Item images from: <a href="https://minecraft.novaskin.me/resourcepacks" target="_blank">Minecraft Novaskin</a> & <a href="https://minecraft.fandom.com/wiki/Minecraft_Wiki"target="_blank">Minecraft Wiki</a> BUT certain changes have been made by Aditya Jain</li>
+                            <li align="left">Logo image from: <a href="https://www.textstudio.co/" title="TextStudio">Logo generator</a> & <a href="https://Textcraft.net"target="_blank">TextCraft</a></li>
+                            <li align="left">Some mob images by: <a href="https://www.reddit.com/r/Minecraft/comments/nznkrv/minecraft_mobs_and_mcd_pixel_art_unfinished/"target="_blank">Excellent_Animator23</a> and others by Aditya Jain</li>
+                            <li align="left">Background Image by: Aditya Jain</a></li>
+                            <li align="left">Sounds from: <a href="https://minecraft.fandom.com/wiki/Minecraft_Wiki"target="_blank">Minecraft Wiki</a></li>
+                            <li align="left">The FileSaver.js function from: <a href="https://github.com/eligrey/FileSaver.js/blob/master/src/FileSaver.js"target="_blank">Eli Grey</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <table class="Controls">
+                        <tr>
+                            <td colspan="3">
+                                <div style="margin-left: auto; font-size: 30px;">
+                                    The controls are like Minecraft:
+                                </div>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="td1in3">
+                                <table align="center">
+                                    <tr>
+                                        <td class="td1in3">
+                                            <div class="key"><kbd>a</kbd></div>
+                                        </td>
+                                        <td class="td1in3">
+                
+                                        </td>
+                                        <td class="td1in3">
+                                            <div class="Indicator">Right</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td1in3">
+                                            <div class="key"><kbd>d</kbd></div>
+                                        </td>
+                                        <td class="td1in3">
+                
+                                        </td>
+                                        <td class="td1in3">
+                                            <div class="Indicator">Left</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td1in3">
+                                            <div class="key"><kbd>w</kbd></div>
+                                        </td>
+                                        <td class="td1in3">
+                
+                                        </td>
+                                        <td class="td1in3">
+                                            <div class="Indicator">Up Ladders</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td1in3">
+                                            <div class="key"><kbd>s</kbd></div>
+                                        </td>
+                                        <td class="td1in3">
+                
+                                        </td>
+                                        <td class="td1in3">
+                                            <div class="Indicator">Down Ladders</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td1in3">
+                                            <div class="key"><kbd>Space</kbd></div>
+                                        </td>
+                                        <td class="td1in3">
+                
+                                        </td>
+                                        <td class="td1in3">
+                                            <div class="Indicator">Jump</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            
+                            <td class="td1in3">
+            
+                            </td>
+            
+                            <td class="td1in3">
+                                <table>
+                                    <tr>
+                                        <td class="td1in3">
+                                            <div class="key"><img src="images/GUI/rightClick.png" class="ClickView"></div>
+                                        </td>
+                                        <td class="td1in3">
+                
+                                        </td>
+                                        <td class="td1in3">
+                                            <div class="Indicator">Right Click : Place/Click</div>
+                                        </td>
+                                    </tr>
+            
+                                    <tr>
+                                        <td>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                        </td>
+                                    </tr>
+            
+                                    <tr>
+                                        <td class="td1in3">
+                                            <div class="key"><img src="images/GUI/holdClick.png" class="ClickView"></div>
+                                        </td>
+                                        <td class="td1in3">
+                
+                                        </td>
+                                        <td class="td1in3">
+                                            <div class="Indicator">Left Click : Destroy/Attack</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <table class="Feature">
+                        <tr>
+                            <td>
+                                <h1>--- FEATURES ---</h1>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="center">
+                                <button class="collapsible">Crafting</button>
+                                <div class="content">
+                                    <table>
+                                        <tr>
+                                            <td align="center">
+                                                The crafting is basically same as Minecraft 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center">
+                                                <img src="IMAGES/DEMOIMAGES/crafting.png" style="width:75%;">
+                                            </td>
+                                        </tr>
+                                    </table>                                   
+                                </div>
+                                <button class="collapsible">Furnace</button>
+                                <div class="content">
+                                    <p >t</p>
+                                </div>
+                                <button class="collapsible">Containers</button>
+                                <div class="content">
+                                    <p >t</p>
+                                </div>
+                                <button class="collapsible">Sound Effects</button>
+                                <div class="content">
+                                    <p >t</p>
+                                </div>
+                                <button class="collapsible">Infinite Random Terrain Generation</button>
+                                <div class="content">
+                                    <p >t</p>
+                                </div>
+                                <button class="collapsible">Biomes</button>
+                                <div class="content">
+                                    <p >t</p>
+                                </div>
+                                <button class="collapsible">Mobs & Animals</button>
+                                <div class="content">
+                                    <p >t</p>
+                                </div>
+                                <button class="collapsible">Food & Health</button>
+                                <div class="content">
+                                    <p >t</p>
+                                </div>
+                                <button class="collapsible">Tools</button>
+                                <div class="content">
+                                    <p >t</p>
+                                </div>
+                                <button class="collapsible">Modding</button>
+                                <div class="content">
+                                    <p >t</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <table id="Laucher" align="center" style="min-width: 100%;background-color:#202020; color: white;border: solid #202020 10px;">
+                        <tr>
+                            <td colspan="2">
+                                <br>
+                                <button class="collapsible">SETTINGS</button>
+                                <div class="content" id="settings">
+                                    <br>
+                                    <table align="center" border="1" >
+                                        <tr>
+                                            <td>
+                                                Input Mod file Source (Optional):
+                                            </td>
+                                            <td>
+                                                <input type="text" placeholder="file:///C:/Mystuff/CoolCode.js" id="mod"style="margin: 0px;min-width: 300px;"></input>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Activate Mobs (Deactivate for slow computers):
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Enter a seed value: 
+                                            </td>
+                                            <td>
+                                                <input type="text" id="seed" placeholder="Leave blank for random">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                    <p>Choose the order the biomes appear in for a better and customizable experience</p>
+                                    <table align="center" class="Biome">
+                                        <tr>
+                                            <td onclick="ADDROW();">+</td>
+                                            <td><input></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <a href="Minebuild.html" target="_blank">Play</a>
+
+    </body>
+</html>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    var biomes = ["PLAINS","DESERT"];
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        } 
+      });
+    }
+    
+    function ADDROW(){
+        var tr = document.createElement("tr");
+        tr.setAttribute("class","row")
+        var td = document.createElement("td");
+        td.innerText = "+";
+        td.setAttribute("onclick","ADDROW()")
+        var td2 = document.createElement("td");
+        var input = document.createElement("input");
+        td2.appendChild(input);
+        var td3 = document.createElement("td");
+        td3.innerText = "-";
+        td3.setAttribute("onclick","REMOVEROW("+document.getElementsByClassName('row').length+")")
+        tr.appendChild(td);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        document.getElementsByClassName("Biome")[0].lastChild.appendChild(tr);
+        document.getElementById("settings").style.maxHeight = document.getElementById("settings").scrollHeight+"px";
+        for (let i = 0; i < document.getElementsByClassName('row').length; i++) {
+            const el = document.getElementsByClassName('row')[i];
+            el.lastChild.setAttribute("onclick","REMOVEROW("+i+")");
+        }
+    }
+
+    function REMOVEROW(n){
+        document.getElementsByClassName("row")[n].remove();
+        for (let i = 0; i < document.getElementsByClassName('row').length; i++) {
+            const el = document.getElementsByClassName('row')[i];
+            el.lastChild.setAttribute("onclick","REMOVEROW("+i+")");
+        }
+    }
+
+    function CHECKROWS(n){
+        for(var I = 0; I<document.getElementsByClassName("Biome")[0].children[0].children.length;I++){
+            var a = document.getElementsByClassName("Biome")[0].children[0].children[I].children[1].children[0].value.toUpperCase().trim();
+            for (let i = 0; i < biomes.length; i++) {
+                if (a == biomes[i]){
+                    i=biomes.length
+                }
+                else{
+                    console.log(a);
+                }
+            }
+        }
+    }
+
+    function GETLINK(){
+        var ext = "?";
+        if(document.getElementById("seed").value != ""){
+            ext+="seed="+document.getElementById("seed").value+"&";
+        }
+        else{
+            ext+="seed="+(new Date().toDateString()+new Date().getTime())+"&";
+        }
+        if(document.getElementById("mod").value && document.getElementById("mod").value.substring(document.getElementById("mod").value.length-3,document.getElementById("mod").value.length).toLowerCase() == ".js"){
+            ext+="modSrc="+document.getElementById("mod").value+"&";
+        }
+        return ext;
+    }
+</script>
+<!-- 
+ -->
